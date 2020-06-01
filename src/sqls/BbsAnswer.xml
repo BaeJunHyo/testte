@@ -1,0 +1,40 @@
+<!DOCTYPE mapper
+  PUBLIC "-//www.mybatis.org//DTD Mapper 3.0//EN"
+  "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="BbsAnswer">
+
+<insert id="answerInsert" parameterType="cd.com.a.model.BbsAnswerVo">
+INSERT INTO bbs_answer(bbs_seq,bbs_answer,answer_regi,mem_name,mem_seq,update_regi)
+VALUES (#{bbs_seq},#{bbs_answer},now(),#{mem_name},${mem_seq},now())
+</insert>
+
+<select id="answerList" parameterType="java.lang.Integer" resultType="cd.com.a.model.BbsAnswerVo">
+SELECT answer_seq,bbs_seq,bbs_answer,answer_regi,mem_name,mem_seq
+FROM bbs_answer
+WHERE bbs_seq=#{bbs_seq}
+ORDER BY answer_regi
+</select>
+
+<update id="answerUpdate" parameterType="cd.com.a.model.BbsAnswerVo">
+UPDATE bbs_answer
+SET bbs_answer=#{bbs_answer},update_regi=now()
+WHERE answer_seq=#{answer_seq}
+</update>
+
+<delete id="answerDelete" parameterType="java.lang.Integer">
+DELETE
+FROM bbs_answer
+WHERE answer_seq=#{answer_seq}
+</delete>
+
+<update id="answerUpdateCount" parameterType="java.lang.Integer">
+UPDATE bbs
+SET answer_count = (SELECT COUNT(*) FROM bbs_answer WHERE bbs_seq=${bbs_seq})
+WHERE bbs_seq=${bbs_seq}
+
+</update>
+
+
+
+</mapper>

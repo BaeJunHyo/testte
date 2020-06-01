@@ -1,0 +1,91 @@
+<!DOCTYPE mapper
+  PUBLIC "-//www.mybatis.org//DTD Mapper 3.0//EN"
+  "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="Bbs">
+
+<select id="getBbsList" parameterType="cd.com.a.model.PagingCriteria" resultType="cd.com.a.model.BbsVo">
+SELECT bbs_seq,bbs_title,bbs_content,mem_name,bbs_regi,bbs_readcount,bbs_del,answer_count
+FROM bbs
+WHERE bbs_del=1
+<if test="searchType ==1 ">
+	AND bbs_title like concat('%',#{keyword},'%')
+</if>
+<if test="searchType ==2 ">
+	AND bbs_content like concat('%',#{keyword},'%')
+</if>
+<if test="searchType ==3 ">
+	AND (bbs_title like concat('%',#{keyword},'%') OR bbs_content like concat('%',#{keyword},'%'))
+</if>
+<if test="searchType ==4 ">
+	AND mem_name like concat('%',#{keyword},'%')
+</if>
+ORDER BY bbs_seq DESC
+limit #{pageStart},#{perPageNum}
+</select>
+
+<select id="getMainBbsList" resultType="cd.com.a.model.BbsVo">
+SELECT bbs_seq,bbs_title,mem_name,bbs_regi,bbs_readcount,bbs_del,answer_count
+FROM bbs
+ORDER BY bbs_regi DESC
+LIMIT 5
+</select>
+
+<insert id="BbsWrite" parameterType="cd.com.a.model.BbsVo" >
+INSERT INTO bbs(bbs_title,bbs_content,mem_name,mem_seq,
+				bbs_link1,bbs_link2,bbs_regi,bbs_readcount,bbs_del,
+				file_origin1,file_name1,file_path1,
+				file_origin2,file_name2,file_path2)
+VALUES( #{bbs_title},#{bbs_content},#{mem_name},#{mem_seq},
+		#{bbs_link1},#{bbs_link2},now(),0,1,
+		#{file_origin1},#{file_name1},#{file_path1},
+		#{file_origin2},#{file_name2},#{file_path2})
+</insert>
+
+<select id="BbsDetail" parameterType="java.lang.Integer" resultType="cd.com.a.model.BbsVo">
+SELECT *
+FROM bbs
+WHERE bbs_seq=${bbs_seq}
+</select>
+
+<update id="BbsReadCountUp" parameterType="java.lang.Integer">
+UPDATE bbs
+SET bbs_readcount= bbs_readcount +1
+WHERE bbs_seq=${bbs_seq}
+</update>
+
+<update id="BbsDelete" parameterType="java.lang.Integer">
+UPDATE bbs
+SET bbs_del=0
+WHERE bbs_seq=${bbs_seq}
+</update>
+
+<update id="BbsUpdate" parameterType="cd.com.a.model.BbsVo">
+UPDATE bbs
+SET bbs_title=#{bbs_title},bbs_content=#{bbs_content},
+	bbs_link1=#{bbs_link1},bbs_link2=#{bbs_link2},bbs_regi=now(),
+	file_origin1=#{file_origin1},file_name1=#{file_name1},file_path1=#{file_path1},
+	file_origin2=#{file_origin2},file_name2=#{file_name2},file_path2=#{file_path2}
+WHERE bbs_seq=${bbs_seq}
+</update>
+
+<select id="getTotalCnt" parameterType="cd.com.a.model.PagingCriteria" resultType="int">
+SELECT count(*)
+FROM bbs
+WHERE bbs_del=1
+<if test="searchType ==1 ">
+	AND bbs_title like concat('%',#{keyword},'%')
+</if>
+<if test="searchType ==2 ">
+	AND bbs_content like concat('%',#{keyword},'%')
+</if>
+<if test="searchType ==3 ">
+	AND (bbs_title like concat('%',#{keyword},'%') OR bbs_content like concat('%',#{keyword},'%'))
+</if>
+<if test="searchType ==4 ">
+	AND mem_name like concat('%',#{keyword},'%')
+</if>
+</select>
+
+
+</mapper>

@@ -1,0 +1,31 @@
+<!DOCTYPE mapper
+  PUBLIC "-//www.mybatis.org//DTD Mapper 3.0//EN"
+  "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="Member">
+
+<select id="idCheck" parameterType="java.lang.String" resultType="java.lang.Integer">
+SELECT IFNULL(COUNT(*),0)
+FROM member
+WHERE mem_id=#{id} 
+</select>
+
+<select id="mailCheck" parameterType="java.lang.String" resultType="java.lang.Integer">
+SELECT IFNULL(COUNT(*),0)
+FROM member
+WHERE mem_email=#{mail} 
+</select>
+
+<insert id="newRegi" parameterType="cd.com.a.model.MemberVo">
+INSERT INTO member(mem_id,mem_password,pass_question,pass_answer,company_name,company_num,company_owner,mem_name,mem_phone,mem_email,company_auth,company_phone,company_fax,company_addr,mem_auth,mem_regi,mem_del)
+VALUES (#{mem_id},#{mem_password},${pass_question},#{pass_answer},#{company_name},#{company_num},#{company_owner},#{mem_name},#{mem_phone},#{mem_email},#{company_auth},#{company_phone},#{company_fax},#{company_addr},1,now(),1)
+</insert>
+
+<select id="login" parameterType="cd.com.a.model.MemberVo" resultType="cd.com.a.model.MemberVo">
+SELECT mem_seq, mem_id, mem_name, mem_auth, company_name
+FROM member
+WHERE mem_id=#{mem_id} AND mem_password=#{mem_password}
+
+</select>
+
+</mapper>
