@@ -17,9 +17,9 @@ if(userSession != null){
 <link href="<%=request.getContextPath() %>/css/reset.css" rel="stylesheet">
 <%-- <link href="<%=request.getContextPath() %>/css/common.css" rel="stylesheet"> --%>
 <link href="<%=request.getContextPath() %>/css/style.css" rel="stylesheet">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script> 
 <script src="<%=request.getContextPath() %>/js/jquery.bxslider.js"></script>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script> 
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 <!-- 코어태그 -->
@@ -40,8 +40,7 @@ if(userSession != null){
 	<div id="header" class="sub">		
 		<div class="header_top">
 			<div class="inner">
-					<% if(userSession == null){
-					%>
+					<% if(userSession == null){%>
 					<!--로그인세션이 없을때 -->
 					<span><a href="<%=request.getContextPath() %>/loginViewMove.do">로그인</a></span>
 					<span><img src="<%=request.getContextPath() %>/images/main/header_dot.jpg" alt="·"></span>
@@ -53,13 +52,18 @@ if(userSession != null){
 						<li><a href="#">회원가입</a></li>
 						<li><a href="#">사이트맵</a></li>
 						</ul>			 -->
-					<% 
-					}else{
-					%>
-					<span><a href="<%=request.getContextPath() %>/#none">마이페이지</a></span>
-					<span><img src="<%=request.getContextPath() %>/images/main/header_dot.jpg" alt="·"></span>
-					<span><a href="#" onclick="logout()">로그아웃</a></span>
-					<span><img src="<%=request.getContextPath() %>/images/main/header_dot.jpg" alt="·"></span>
+					<%}else{%>
+						<%if(userSession.getMem_auth() == 3){ %>
+						<span><a href="<%=request.getContextPath() %>/admin.do">관리자페이지</a></span>
+						<span><img src="<%=request.getContextPath() %>/images/main/header_dot.jpg" alt="·"></span>
+						<span><a href="#" onclick="logout()">로그아웃</a></span>
+						<span><img src="<%=request.getContextPath() %>/images/main/header_dot.jpg" alt="·"></span>
+						<%}else{ %>
+						<span><a href="<%=request.getContextPath() %>/#none">마이페이지</a></span>
+						<span><img src="<%=request.getContextPath() %>/images/main/header_dot.jpg" alt="·"></span>
+						<span><a href="#" onclick="logout()">로그아웃</a></span>
+						<span><img src="<%=request.getContextPath() %>/images/main/header_dot.jpg" alt="·"></span>
+						<%} %>
 					<%
 					}
 					%>

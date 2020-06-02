@@ -56,6 +56,9 @@
 								<c:if test="${userSession.mem_auth eq 2}">
 								<th style="width:150px;">회원등급 : [협회회원]</th>
 								</c:if>
+								<c:if test="${userSession.mem_auth eq 3}">
+								<th style="width:150px;">회원등급 : [관리자]</th>
+								</c:if>
 							</tr>
 							</tbody>
 							<span>
@@ -86,7 +89,7 @@
 							<c:forEach items="${notice_list }" var="list">
 							<tr>
 								<td>
-								<a href="#">${list.bbs_title }
+								<a href="bbsDetail.do?bbs_seq=${list.bbs_seq }">${list.bbs_title }
 								<span ></span>
 								</a>
 								</td>

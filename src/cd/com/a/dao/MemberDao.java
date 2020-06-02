@@ -1,5 +1,7 @@
 package cd.com.a.dao;
 
+import java.util.List;
+
 import cd.com.a.model.MemberVo;
 
 public interface MemberDao {
@@ -11,5 +13,7 @@ public interface MemberDao {
 	boolean newRegi(MemberVo member);
 
 	MemberVo login(MemberVo member);
+
+	List<MemberVo> getNewRegiList();
 
 }

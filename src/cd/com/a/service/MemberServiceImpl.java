@@ -1,5 +1,7 @@
 package cd.com.a.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -28,6 +30,11 @@ public class MemberServiceImpl implements MemberService {
 	public MemberVo login(MemberVo member) {
 		// TODO Auto-generated method stub
 		return dao.login(member);
+	}
+	@Override
+	public List<MemberVo> getNewRegiList() {
+		// TODO Auto-generated method stub
+		return dao.getNewRegiList();
 	}
 	
 	

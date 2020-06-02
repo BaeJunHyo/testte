@@ -25,7 +25,14 @@ VALUES (#{mem_id},#{mem_password},${pass_question},#{pass_answer},#{company_name
 SELECT mem_seq, mem_id, mem_name, mem_auth, company_name
 FROM member
 WHERE mem_id=#{mem_id} AND mem_password=#{mem_password}
-
 </select>
+
+<select id="getNewRegiList" resultType="cd.com.a.model.MemberVo">
+SELECT mem_id,pass_question,pass_answer,company_name,company_num,company_owner,mem_name,mem_phone,mem_email,company_auth,company_phone,company_fax,company_addr,mem_auth,mem_regi,mem_del
+FROM member
+ORDER BY mem_regi DESC
+</select>
+
+
 
 </mapper>

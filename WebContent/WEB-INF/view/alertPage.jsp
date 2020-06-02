@@ -44,6 +44,21 @@ $(document).ready(function(){
 </script>
 </c:if>
 
+<c:if test="${type eq 'auth'}">
+<script>
+$(document).ready(function(){
+	Swal.fire({
+		  icon: 'error',
+		  title: '${msg}',
+		  confirmButtonText:"확인",
+		  showConfirmButton: true
+		}).then(function(){
+			window.location="main.do"
+		});
+})
+</script>
+</c:if>
+
 
 
 

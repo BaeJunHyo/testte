@@ -1,5 +1,7 @@
 package cd.com.a.dao;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -33,5 +35,12 @@ public class MemberDaoImpl implements MemberDao{
 		MemberVo result = sqlSession.selectOne(nameSpace+"login",member);
 		return result;
 	}
+	
+	@Override
+	public List<MemberVo> getNewRegiList() {
+		return sqlSession.selectList(nameSpace+"getNewRegiList");
+	}
+	
+	
 
 }

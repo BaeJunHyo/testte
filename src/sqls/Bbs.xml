@@ -88,4 +88,6 @@ WHERE bbs_del=1
 </select>
 
 
+
+
 </mapper>

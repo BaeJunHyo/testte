@@ -161,19 +161,24 @@ public class BbsController {
 	
 	
 	@RequestMapping(value = "/bbsDetail.do", method=RequestMethod.GET)
-	public String bbsDetail(@RequestParam("bbs_seq")int bbs_seq, Model model,PagingCriteria cri)throws Exception {
+	public String bbsDetail(@RequestParam("bbs_seq")int bbs_seq, Model model,PagingCriteria cri,HttpServletRequest req)throws Exception {
 		System.out.println("seq="+bbs_seq);
-		BbsVo bbsVo = bbsService.bbsDetail(bbs_seq);
 		
-		PageMaker pageMaker = new PageMaker();
-		pageMaker.setCri(cri);
-		model.addAttribute("bbsDetail",bbsVo);
-		model.addAttribute("answerVO",new BbsAnswerVo());
-		model.addAttribute("page",cri.getPage());
-		model.addAttribute("searchType",cri.getSearchType());
-		model.addAttribute("keyword",cri.getKeyword());
-		model.addAttribute("pageMaker",pageMaker);
-		return "/bbs/bbsDetail";
+		MemberVo user = (MemberVo)req.getSession().getAttribute("userSession");
+		if(user == null) {
+			return "alertPage";
+		}else {
+			BbsVo bbsVo = bbsService.bbsDetail(bbs_seq);
+			PageMaker pageMaker = new PageMaker();
+			pageMaker.setCri(cri);
+			model.addAttribute("bbsDetail",bbsVo);
+			model.addAttribute("answerVO",new BbsAnswerVo());
+			model.addAttribute("page",cri.getPage());
+			model.addAttribute("searchType",cri.getSearchType());
+			model.addAttribute("keyword",cri.getKeyword());
+			model.addAttribute("pageMaker",pageMaker);
+			return "/bbs/bbsDetail";
+		}
 	}
 	
 	@ResponseBody
