@@ -28,25 +28,26 @@
 							</colgroup> 
 							<tbody>
 							<c:if test="${userSession eq null}">
-							<tr>
-								<th align="left" style="width:60px; height:30px">아이디 :</th>
-								<td><input type="text" id="login_id" name="mem_id" value="" placeholder="" style="text-align:center; width:150px; height:30px;"><td>
-								<td rowspan="2"><input type="button" id="login_btn" value="로그인" style="width:50px; height:50px; margin-left:7px;"></td>
-							</tr>
-							<tr>
-								<th align="left" style="width:60px; height:30px">패스워드 :</th>
-								<td><input type="password" id="login_pw" name="mem_password" value="" placeholder="" style="text-align:center; width:150px; height:30px;"><td>
-							</tr>
-							</tbody>
-							<span>
-								<a href="<%=request.getContextPath() %>/newRegi.do" style="margin-left: 25px; margin-right: 5px;">회원가입</a>
-								<a href="<%=request.getContextPath() %>/#none" style="margin-left: 35px;">아이디/비밀번호 찾기</a>
-							</span>
+								<tr>
+									<th align="left" style="width:60px; height:30px">아이디 :</th>
+									<td><input type="text" id="login_id" name="mem_usrid" value="" placeholder="" style="text-align:center; width:150px; height:30px;"><td>
+									<td rowspan="2"><input type="button" id="login_btn" value="로그인" style="width:50px; height:50px; margin-left:7px;"></td>
+								</tr>
+								<tr>
+									<th align="left" style="width:60px; height:30px">패스워드 :</th>
+									<td><input type="password" id="login_pw" name="mem_pw" value="" placeholder="" style="text-align:center; width:150px; height:30px;"><td>
+								</tr>
+								</tbody>
+								<span>
+									<a href="<%=request.getContextPath() %>/newRegi.do" style="margin-left: 25px; margin-right: 5px;">회원가입</a>
+									<a href="<%=request.getContextPath() %>/#none" style="margin-left: 35px;">아이디/비밀번호 찾기</a>
+								</span>
 							</c:if>
+							
 							
 							<c:if test="${userSession ne null }">
 							<tr>
-								<th style="width:150px;">${userSession.mem_name } 님</th>
+								<th style="width:150px;">${userSession.mem_nm } 님</th>
 								<td rowspan="2"><input type="button" id="logout_btn" onclick="logout()" value="로그아웃" style="width:70px; height:50px; margin-left:7px;"></td>
 							</tr>
 							<tr>
@@ -128,16 +129,16 @@
 
 <script type="text/javascript">
 $("#login_btn").click(function(){
-	const mem_id = $("#login_id").val();
-	const mem_password = $("#login_pw").val();
+	const mem_usrid = $("#login_id").val();
+	const mem_pw = $("#login_pw").val();
 
-	if(mem_id != "" && mem_password != ""){
+	if(mem_usrid != "" && mem_pw != ""){
 		//$("form").attr("action","login.do").submit();
 		$.ajax({
 			url : "<%=request.getContextPath() %>/login.do",
 			type : "post",
 			dataType:"text",
-			data : {"mem_id":mem_id,"mem_password":mem_password},
+			data : {"mem_usrid":mem_usrid,"mem_pw":mem_pw},
 			success:function(data){
 				if(data == "true"){
 				      		location.reload();
@@ -157,7 +158,7 @@ $("#login_btn").click(function(){
 				alert("error");
 			}
 		});
-	}else if(mem_id == "" || mem_id == null){
+	}else if(mem_usrid == "" || mem_usrid == null){
 		Swal.fire({
 	      	  icon: 'warning',
 	      	  title: '아이디를 입력해주세요',
@@ -167,7 +168,7 @@ $("#login_btn").click(function(){
 	      		$('#login_id').focus();
 	    		return;
 	      	});
-	}else if( mem_password =="" || mem_password == null){
+	}else if( mem_pw =="" || mem_pw == null){
 		Swal.fire({
 	      	  icon: 'warning',
 	      	  title: '비밀번호를 입력해주세요',

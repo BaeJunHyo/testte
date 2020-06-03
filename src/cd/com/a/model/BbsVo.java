@@ -4,209 +4,222 @@ import java.io.Serializable;
 
 public class BbsVo implements Serializable {
 
-    // 게시판seq 
-    private int bbs_seq;
-    // 제목 
-    private String bbs_title;
-    // 내용 
-    private String bbs_content;
-    // 작성자 
-    private String mem_name;
-    // 작성자 
-    private int mem_seq;
-    // 링크1 
-    private String bbs_link1;
-    // 링크2 
-    private String bbs_link2;
-    // 작성일 
-    private String bbs_regi;
-    // 조회수 
-    private int bbs_readcount;
-    // 삭제처리 
-    private int bbs_del;
-    private String file_origin1;
-    private String file_name1;
-    private String file_path1;
-    private String file_origin2;
-    private String file_name2;
-    private String file_path2;
-    private int answer_count;
 
-    public BbsVo() {
-		super();
-	}
+	    // 게시판글 UUID
+	    private Integer ntt_id;
+	    // 게시판명 UUID
+	    private String bbs_id;
+	    // 게시글 행번호
+	    private Integer ntt_step;
+	    // 게시글 제목
+	    private String ntt_title;
+	    // 게시글 내용
+	    private String ntt_content;
+	    // 답글 존재 여부
+	    private String answer_attr;
+	    // 답글 그룹번호
+	    private Integer ntt_ref;
+	    // 답글 깊이
+	    private Integer ntt_depth;
+	    // 조회수
+	    private Integer rdcnt;
+	    // 게시글 사용 여부
+	    private String use_attr;
+	    // 파일명
+	    private String file_id;
+	    // 게시글 작성일
+	    private String frst_regi;
+	    // 게시글 작성자
+	    private Integer frst_regi_id;
+	    // 게시글 작성자명
+	    private String frst_regi_usrid;
+	    // 게시글 수정일
+	    private String last_updt_regi;
+	    // 게시글 수정자
+	    private Integer last_updt_id;
+	    // 게시글 수정자명
+	    private String last_updt_usrid;
+	    
+		public BbsVo() {
+			super();
+		}
 
-	public BbsVo(int bbs_seq, String bbs_title, String bbs_content, String mem_name, int mem_seq, String bbs_link1,
-			String bbs_link2, String bbs_regi, int bbs_readcount, int bbs_del, String file_origin1, String file_name1,
-			String file_path1, String file_origin2, String file_name2, String file_path2, int answer_count) {
-		super();
-		this.bbs_seq = bbs_seq;
-		this.bbs_title = bbs_title;
-		this.bbs_content = bbs_content;
-		this.mem_name = mem_name;
-		this.mem_seq = mem_seq;
-		this.bbs_link1 = bbs_link1;
-		this.bbs_link2 = bbs_link2;
-		this.bbs_regi = bbs_regi;
-		this.bbs_readcount = bbs_readcount;
-		this.bbs_del = bbs_del;
-		this.file_origin1 = file_origin1;
-		this.file_name1 = file_name1;
-		this.file_path1 = file_path1;
-		this.file_origin2 = file_origin2;
-		this.file_name2 = file_name2;
-		this.file_path2 = file_path2;
-		this.answer_count = answer_count;
-	}
+		public BbsVo(Integer ntt_id, String bbs_id, Integer ntt_step, String ntt_title, String ntt_content,
+				String answer_attr, Integer ntt_ref, Integer ntt_depth, Integer rdcnt, String use_attr, String file_id,
+				String frst_regi, Integer frst_regi_id, String frst_regi_usrid, String last_updt_regi,
+				Integer last_updt_id, String last_updt_usrid) {
+			super();
+			this.ntt_id = ntt_id;
+			this.bbs_id = bbs_id;
+			this.ntt_step = ntt_step;
+			this.ntt_title = ntt_title;
+			this.ntt_content = ntt_content;
+			this.answer_attr = answer_attr;
+			this.ntt_ref = ntt_ref;
+			this.ntt_depth = ntt_depth;
+			this.rdcnt = rdcnt;
+			this.use_attr = use_attr;
+			this.file_id = file_id;
+			this.frst_regi = frst_regi;
+			this.frst_regi_id = frst_regi_id;
+			this.frst_regi_usrid = frst_regi_usrid;
+			this.last_updt_regi = last_updt_regi;
+			this.last_updt_id = last_updt_id;
+			this.last_updt_usrid = last_updt_usrid;
+		}
 
-	public int getBbs_seq() {
-		return bbs_seq;
-	}
+		public Integer getNtt_id() {
+			return ntt_id;
+		}
 
-	public void setBbs_seq(int bbs_seq) {
-		this.bbs_seq = bbs_seq;
-	}
+		public void setNtt_id(Integer ntt_id) {
+			this.ntt_id = ntt_id;
+		}
 
-	public String getBbs_title() {
-		return bbs_title;
-	}
+		public String getBbs_id() {
+			return bbs_id;
+		}
 
-	public void setBbs_title(String bbs_title) {
-		this.bbs_title = bbs_title;
-	}
+		public void setBbs_id(String bbs_id) {
+			this.bbs_id = bbs_id;
+		}
 
-	public String getBbs_content() {
-		return bbs_content;
-	}
+		public Integer getNtt_step() {
+			return ntt_step;
+		}
 
-	public void setBbs_content(String bbs_content) {
-		this.bbs_content = bbs_content;
-	}
+		public void setNtt_step(Integer ntt_step) {
+			this.ntt_step = ntt_step;
+		}
 
-	public String getMem_name() {
-		return mem_name;
-	}
+		public String getNtt_title() {
+			return ntt_title;
+		}
 
-	public void setMem_name(String mem_name) {
-		this.mem_name = mem_name;
-	}
+		public void setNtt_title(String ntt_title) {
+			this.ntt_title = ntt_title;
+		}
 
-	public int getMem_seq() {
-		return mem_seq;
-	}
+		public String getNtt_content() {
+			return ntt_content;
+		}
 
-	public void setMem_seq(int mem_seq) {
-		this.mem_seq = mem_seq;
-	}
+		public void setNtt_content(String ntt_content) {
+			this.ntt_content = ntt_content;
+		}
 
-	public String getBbs_link1() {
-		return bbs_link1;
-	}
+		public String getAnswer_attr() {
+			return answer_attr;
+		}
 
-	public void setBbs_link1(String bbs_link1) {
-		this.bbs_link1 = bbs_link1;
-	}
+		public void setAnswer_attr(String answer_attr) {
+			this.answer_attr = answer_attr;
+		}
 
-	public String getBbs_link2() {
-		return bbs_link2;
-	}
+		public Integer getNtt_ref() {
+			return ntt_ref;
+		}
 
-	public void setBbs_link2(String bbs_link2) {
-		this.bbs_link2 = bbs_link2;
-	}
+		public void setNtt_ref(Integer ntt_ref) {
+			this.ntt_ref = ntt_ref;
+		}
 
-	public String getBbs_regi() {
-		return bbs_regi;
-	}
+		public Integer getNtt_depth() {
+			return ntt_depth;
+		}
 
-	public void setBbs_regi(String bbs_regi) {
-		this.bbs_regi = bbs_regi;
-	}
+		public void setNtt_depth(Integer ntt_depth) {
+			this.ntt_depth = ntt_depth;
+		}
 
-	public int getBbs_readcount() {
-		return bbs_readcount;
-	}
+		public Integer getRdcnt() {
+			return rdcnt;
+		}
 
-	public void setBbs_readcount(int bbs_readcount) {
-		this.bbs_readcount = bbs_readcount;
-	}
+		public void setRdcnt(Integer rdcnt) {
+			this.rdcnt = rdcnt;
+		}
 
-	public int getBbs_del() {
-		return bbs_del;
-	}
+		public String getUse_attr() {
+			return use_attr;
+		}
 
-	public void setBbs_del(int bbs_del) {
-		this.bbs_del = bbs_del;
-	}
+		public void setUse_attr(String use_attr) {
+			this.use_attr = use_attr;
+		}
 
-	public String getFile_origin1() {
-		return file_origin1;
-	}
+		public String getFile_id() {
+			return file_id;
+		}
 
-	public void setFile_origin1(String file_origin1) {
-		this.file_origin1 = file_origin1;
-	}
+		public void setFile_id(String file_id) {
+			this.file_id = file_id;
+		}
 
-	public String getFile_name1() {
-		return file_name1;
-	}
+		public String getFrst_regi() {
+			return frst_regi;
+		}
 
-	public void setFile_name1(String file_name1) {
-		this.file_name1 = file_name1;
-	}
+		public void setFrst_regi(String frst_regi) {
+			this.frst_regi = frst_regi;
+		}
 
-	public String getFile_path1() {
-		return file_path1;
-	}
+		public Integer getFrst_regi_id() {
+			return frst_regi_id;
+		}
 
-	public void setFile_path1(String file_path1) {
-		this.file_path1 = file_path1;
-	}
+		public void setFrst_regi_id(Integer frst_regi_id) {
+			this.frst_regi_id = frst_regi_id;
+		}
 
-	public String getFile_origin2() {
-		return file_origin2;
-	}
+		public String getFrst_regi_usrid() {
+			return frst_regi_usrid;
+		}
 
-	public void setFile_origin2(String file_origin2) {
-		this.file_origin2 = file_origin2;
-	}
+		public void setFrst_regi_usrid(String frst_regi_usrid) {
+			this.frst_regi_usrid = frst_regi_usrid;
+		}
 
-	public String getFile_name2() {
-		return file_name2;
-	}
+		public String getLast_updt_regi() {
+			return last_updt_regi;
+		}
 
-	public void setFile_name2(String file_name2) {
-		this.file_name2 = file_name2;
-	}
+		public void setLast_updt_regi(String last_updt_regi) {
+			this.last_updt_regi = last_updt_regi;
+		}
 
-	public String getFile_path2() {
-		return file_path2;
-	}
+		public Integer getLast_updt_id() {
+			return last_updt_id;
+		}
 
-	public void setFile_path2(String file_path2) {
-		this.file_path2 = file_path2;
-	}
+		public void setLast_updt_id(Integer last_updt_id) {
+			this.last_updt_id = last_updt_id;
+		}
 
-	public int getAnswer_count() {
-		return answer_count;
-	}
+		public String getLast_updt_usrid() {
+			return last_updt_usrid;
+		}
 
-	public void setAnswer_count(int answer_count) {
-		this.answer_count = answer_count;
-	}
+		public void setLast_updt_usrid(String last_updt_usrid) {
+			this.last_updt_usrid = last_updt_usrid;
+		}
 
-	@Override
-	public String toString() {
-		return "BbsVo [bbs_seq=" + bbs_seq + ", bbs_title=" + bbs_title + ", bbs_content=" + bbs_content + ", mem_name="
-				+ mem_name + ", mem_seq=" + mem_seq + ", bbs_link1=" + bbs_link1 + ", bbs_link2=" + bbs_link2
-				+ ", bbs_regi=" + bbs_regi + ", bbs_readcount=" + bbs_readcount + ", bbs_del=" + bbs_del
-				+ ", file_origin1=" + file_origin1 + ", file_name1=" + file_name1 + ", file_path1=" + file_path1
-				+ ", file_origin2=" + file_origin2 + ", file_name2=" + file_name2 + ", file_path2=" + file_path2
-				+ ", answer_count=" + answer_count + "]";
-	}
+		@Override
+		public String toString() {
+			return "BbsVo [ntt_id=" + ntt_id + ", bbs_id=" + bbs_id + ", ntt_step=" + ntt_step + ", ntt_title="
+					+ ntt_title + ", ntt_content=" + ntt_content + ", answer_attr=" + answer_attr + ", ntt_ref="
+					+ ntt_ref + ", ntt_depth=" + ntt_depth + ", rdcnt=" + rdcnt + ", use_attr=" + use_attr
+					+ ", file_id=" + file_id + ", frst_regi=" + frst_regi + ", frst_regi_id=" + frst_regi_id
+					+ ", frst_regi_usrid=" + frst_regi_usrid + ", last_updt_regi=" + last_updt_regi + ", last_updt_id="
+					+ last_updt_id + ", last_updt_usrid=" + last_updt_usrid + "]";
+		}
+
+		
+	    
+		
+	    
+	    
+
 
 	
-    
-	
-	  
 }

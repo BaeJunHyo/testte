@@ -1,9 +1,9 @@
 <%@page import="java.util.List"%>
-<%@page import="cd.com.a.model.BbsVo"%>
+<%@page import="cd.com.a.model.BbsVo2"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
-BbsVo bbsDetail = (BbsVo)request.getAttribute("bbsDetail");
+	BbsVo2 bbsDetail = (BbsVo2)request.getAttribute("bbsDetail");
 %>
 <%@ include file="../../../include/header.jsp"%>
 <script src = "<%=request.getContextPath() %>/js/ckeditor/ckeditor.js"></script>

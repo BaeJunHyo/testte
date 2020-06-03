@@ -4,227 +4,277 @@ import java.io.Serializable;
 
 public class MemberVo implements Serializable {
 
-    // seq 
-    private int mem_seq;
-    // 아이디 
-    private String mem_id;
-    // 패스워드 
-    private String mem_password;
-    // 패스워드질문 
-    private int pass_question;
-    // 패스워드 답변 
-    private String pass_answer;
-    // 업체명 
-    private String company_name;
-    // 업체등록번호 
-    private String company_num;
-    // 업체대표자 
-    private String company_owner;
-    // 회원이름 
-    private String mem_name;
-    // 회원연락처 
-    private String mem_phone;
-    // 이메일 
-    private String mem_email;
-    // 시.도회명 
-    private String company_auth;
-    // 업체전화번호 
-    private String company_phone;
-    // 업체팩스 
-    private String company_fax;
-    // 업체 주소 
-    private String company_addr;
-    // 회원등급 
-    private int mem_auth;
-    // 가입일 
-    private String mem_regi;
-    // 탈퇴처리 
-    private int mem_del;
-    
-    public MemberVo() {
-		super();
-	}
+	    // 회원UUID
+	    private Integer mem_id;
+	    // 아이디
+	    private String mem_usrid;
+	    // 패스워드
+	    private String mem_pw;
+	    // 패스워드질문
+	    private String pw_quest;
+	    // 패스워드 답변
+	    private String pw_answer;
+	    // 업체명
+	    private String comp_nm;
+	    // 업체등록번호
+	    private String comp_num;
+	    // 업체대표자
+	    private String comp_own;
+	    // 회원이름
+	    private String mem_nm;
+	    // 회원연락처
+	    private String mem_phone;
+	    // 이메일
+	    private String mem_email;
+	    // 시.도회명
+	    private String comp_auth;
+	    // 업체전화번호
+	    private String comp_tel;
+	    // 업체팩스
+	    private String comp_fax;
+	    // 업체 주소
+	    private String comp_addr;
+	    // 회원등급
+	    private Integer mem_auth;
+	    // 가입일
+	    private String mem_new_regi;
+	    // 탈퇴일
+	    private String mem_out_regi;
+	    // 탈퇴구분
+	    private Integer mem_attr;
+	    
+	    
+		public MemberVo() {
+			super();
+		}
 
-	public MemberVo(int mem_seq, String mem_id, String mem_password, int pass_question, String pass_answer,
-			String company_name, String company_num, String company_owner, String mem_name, String mem_phone,
-			String mem_email, String company_auth, String company_phone, String company_fax, String company_addr,
-			int mem_auth, String mem_regi, int mem_del) {
-		super();
-		this.mem_seq = mem_seq;
-		this.mem_id = mem_id;
-		this.mem_password = mem_password;
-		this.pass_question = pass_question;
-		this.pass_answer = pass_answer;
-		this.company_name = company_name;
-		this.company_num = company_num;
-		this.company_owner = company_owner;
-		this.mem_name = mem_name;
-		this.mem_phone = mem_phone;
-		this.mem_email = mem_email;
-		this.company_auth = company_auth;
-		this.company_phone = company_phone;
-		this.company_fax = company_fax;
-		this.company_addr = company_addr;
-		this.mem_auth = mem_auth;
-		this.mem_regi = mem_regi;
-		this.mem_del = mem_del;
-	}
 
-	public int getMem_seq() {
-		return mem_seq;
-	}
+		public MemberVo(Integer mem_id, String mem_usrid, String mem_pw, String pw_quest, String pw_answer,
+				String comp_nm, String comp_num, String comp_own, String mem_nm, String mem_phone, String mem_email,
+				String comp_auth, String comp_tel, String comp_fax, String comp_addr, Integer mem_auth,
+				String mem_new_regi, String mem_out_regi, Integer mem_attr) {
+			super();
+			this.mem_id = mem_id;
+			this.mem_usrid = mem_usrid;
+			this.mem_pw = mem_pw;
+			this.pw_quest = pw_quest;
+			this.pw_answer = pw_answer;
+			this.comp_nm = comp_nm;
+			this.comp_num = comp_num;
+			this.comp_own = comp_own;
+			this.mem_nm = mem_nm;
+			this.mem_phone = mem_phone;
+			this.mem_email = mem_email;
+			this.comp_auth = comp_auth;
+			this.comp_tel = comp_tel;
+			this.comp_fax = comp_fax;
+			this.comp_addr = comp_addr;
+			this.mem_auth = mem_auth;
+			this.mem_new_regi = mem_new_regi;
+			this.mem_out_regi = mem_out_regi;
+			this.mem_attr = mem_attr;
+		}
 
-	public void setMem_seq(int mem_seq) {
-		this.mem_seq = mem_seq;
-	}
 
-	public String getMem_id() {
-		return mem_id;
-	}
+		public Integer getMem_id() {
+			return mem_id;
+		}
 
-	public void setMem_id(String mem_id) {
-		this.mem_id = mem_id;
-	}
 
-	public String getMem_password() {
-		return mem_password;
-	}
+		public void setMem_id(Integer mem_id) {
+			this.mem_id = mem_id;
+		}
 
-	public void setMem_password(String mem_password) {
-		this.mem_password = mem_password;
-	}
 
-	public int getPass_question() {
-		return pass_question;
-	}
+		public String getMem_usrid() {
+			return mem_usrid;
+		}
 
-	public void setPass_question(int pass_question) {
-		this.pass_question = pass_question;
-	}
 
-	public String getPass_answer() {
-		return pass_answer;
-	}
+		public void setMem_usrid(String mem_usrid) {
+			this.mem_usrid = mem_usrid;
+		}
 
-	public void setPass_answer(String pass_answer) {
-		this.pass_answer = pass_answer;
-	}
 
-	public String getCompany_name() {
-		return company_name;
-	}
+		public String getMem_pw() {
+			return mem_pw;
+		}
 
-	public void setCompany_name(String company_name) {
-		this.company_name = company_name;
-	}
 
-	public String getCompany_num() {
-		return company_num;
-	}
+		public void setMem_pw(String mem_pw) {
+			this.mem_pw = mem_pw;
+		}
 
-	public void setCompany_num(String company_num) {
-		this.company_num = company_num;
-	}
 
-	public String getCompany_owner() {
-		return company_owner;
-	}
+		public String getpw_quest() {
+			return pw_quest;
+		}
 
-	public void setCompany_owner(String company_owner) {
-		this.company_owner = company_owner;
-	}
 
-	public String getMem_name() {
-		return mem_name;
-	}
+		public void setpw_quest(String pw_quest) {
+			this.pw_quest = pw_quest;
+		}
 
-	public void setMem_name(String mem_name) {
-		this.mem_name = mem_name;
-	}
 
-	public String getMem_phone() {
-		return mem_phone;
-	}
+		public String getPw_answer() {
+			return pw_answer;
+		}
 
-	public void setMem_phone(String mem_phone) {
-		this.mem_phone = mem_phone;
-	}
 
-	public String getMem_email() {
-		return mem_email;
-	}
+		public void setPw_answer(String pw_answer) {
+			this.pw_answer = pw_answer;
+		}
 
-	public void setMem_email(String mem_email) {
-		this.mem_email = mem_email;
-	}
 
-	public String getCompany_auth() {
-		return company_auth;
-	}
+		public String getComp_nm() {
+			return comp_nm;
+		}
 
-	public void setCompany_auth(String company_auth) {
-		this.company_auth = company_auth;
-	}
 
-	public String getCompany_phone() {
-		return company_phone;
-	}
+		public void setComp_nm(String comp_nm) {
+			this.comp_nm = comp_nm;
+		}
 
-	public void setCompany_phone(String company_phone) {
-		this.company_phone = company_phone;
-	}
 
-	public String getCompany_fax() {
-		return company_fax;
-	}
+		public String getComp_num() {
+			return comp_num;
+		}
 
-	public void setCompany_fax(String company_fax) {
-		this.company_fax = company_fax;
-	}
 
-	public String getCompany_addr() {
-		return company_addr;
-	}
+		public void setComp_num(String comp_num) {
+			this.comp_num = comp_num;
+		}
 
-	public void setCompany_addr(String company_addr) {
-		this.company_addr = company_addr;
-	}
 
-	public int getMem_auth() {
-		return mem_auth;
-	}
+		public String getcomp_own() {
+			return comp_own;
+		}
 
-	public void setMem_auth(int mem_auth) {
-		this.mem_auth = mem_auth;
-	}
 
-	public String getMem_regi() {
-		return mem_regi;
-	}
+		public void setcomp_own(String comp_own) {
+			this.comp_own = comp_own;
+		}
 
-	public void setMem_regi(String mem_regi) {
-		this.mem_regi = mem_regi;
-	}
 
-	public int getMem_del() {
-		return mem_del;
-	}
+		public String getMem_nm() {
+			return mem_nm;
+		}
 
-	public void setMem_del(int mem_del) {
-		this.mem_del = mem_del;
-	}
 
-	@Override
-	public String toString() {
-		return "MemberVo [mem_seq=" + mem_seq + ", mem_id=" + mem_id + ", mem_password=" + mem_password
-				+ ", pass_question=" + pass_question + ", pass_answer=" + pass_answer + ", company_name=" + company_name
-				+ ", company_num=" + company_num + ", company_owner=" + company_owner + ", mem_name=" + mem_name
-				+ ", mem_phone=" + mem_phone + ", mem_email=" + mem_email + ", company_auth=" + company_auth
-				+ ", company_phone=" + company_phone + ", company_fax=" + company_fax + ", company_addr=" + company_addr
-				+ ", mem_auth=" + mem_auth + ", mem_regi=" + mem_regi + ", mem_del=" + mem_del + "]";
-	}
-    
-    
+		public void setMem_nm(String mem_nm) {
+			this.mem_nm = mem_nm;
+		}
 
-	 
-}
+
+		public String getMem_phone() {
+			return mem_phone;
+		}
+
+
+		public void setMem_phone(String mem_phone) {
+			this.mem_phone = mem_phone;
+		}
+
+
+		public String getMem_email() {
+			return mem_email;
+		}
+
+
+		public void setMem_email(String mem_email) {
+			this.mem_email = mem_email;
+		}
+
+
+		public String getComp_auth() {
+			return comp_auth;
+		}
+
+
+		public void setComp_auth(String comp_auth) {
+			this.comp_auth = comp_auth;
+		}
+
+
+		public String getComp_tel() {
+			return comp_tel;
+		}
+
+
+		public void setComp_tel(String comp_tel) {
+			this.comp_tel = comp_tel;
+		}
+
+
+		public String getComp_fax() {
+			return comp_fax;
+		}
+
+
+		public void setComp_fax(String comp_fax) {
+			this.comp_fax = comp_fax;
+		}
+
+
+		public String getComp_addr() {
+			return comp_addr;
+		}
+
+
+		public void setComp_addr(String comp_addr) {
+			this.comp_addr = comp_addr;
+		}
+
+
+		public Integer getMem_auth() {
+			return mem_auth;
+		}
+
+
+		public void setMem_auth(Integer mem_auth) {
+			this.mem_auth = mem_auth;
+		}
+
+
+		public String getMem_new_regi() {
+			return mem_new_regi;
+		}
+
+
+		public void setMem_new_regi(String mem_new_regi) {
+			this.mem_new_regi = mem_new_regi;
+		}
+
+
+		public String getMem_out_regi() {
+			return mem_out_regi;
+		}
+
+
+		public void setMem_out_regi(String mem_out_regi) {
+			this.mem_out_regi = mem_out_regi;
+		}
+
+
+		public Integer getMem_attr() {
+			return mem_attr;
+		}
+
+
+		public void setMem_attr(Integer mem_attr) {
+			this.mem_attr = mem_attr;
+		}
+
+
+		@Override
+		public String toString() {
+			return "MemberVo [mem_id=" + mem_id + ", mem_usrid=" + mem_usrid + ", mem_pw=" + mem_pw + ", pw_quest="
+					+ pw_quest + ", pw_answer=" + pw_answer + ", comp_nm=" + comp_nm + ", comp_num=" + comp_num
+					+ ", comp_own=" + comp_own + ", mem_nm=" + mem_nm + ", mem_phone=" + mem_phone + ", mem_email="
+					+ mem_email + ", comp_auth=" + comp_auth + ", comp_tel=" + comp_tel + ", comp_fax=" + comp_fax
+					+ ", comp_addr=" + comp_addr + ", mem_auth=" + mem_auth + ", mem_new_regi=" + mem_new_regi
+					+ ", mem_out_regi=" + mem_out_regi + ", mem_attr=" + mem_attr + "]";
+		}
+
+
+		}

@@ -1,4 +1,4 @@
-<%@page import="cd.com.a.model.BbsVo"%>
+<%@page import="cd.com.a.model.BbsVo2"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>

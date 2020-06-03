@@ -1,13 +1,13 @@
 <%@page import="cd.com.a.model.PageMaker"%>
 <%@page import="cd.com.a.model.PagingCriteria"%>
 <%@page import="java.util.List"%>
-<%@page import="cd.com.a.model.BbsVo"%>
+<%@page import="cd.com.a.model.BbsVo2"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
 <%@ include file="../../../include/header.jsp"%>
 <%
-List<BbsVo> bbsList = (List<BbsVo>)request.getAttribute("bbsList");
+	List<BbsVo2> bbsList = (List<BbsVo2>)request.getAttribute("bbsList");
 %>
 <style>
 .paging {
@@ -107,10 +107,10 @@ List<BbsVo> bbsList = (List<BbsVo>)request.getAttribute("bbsList");
 					</thead>
 					<tbody>
 					<%
-					if(bbsList!=null){
-							BbsVo bbsVo = null;	
-						for(int i=0; i<bbsList.size();i++){
-							bbsVo = bbsList.get(i);
+						if(bbsList!=null){
+										BbsVo2 bbsVo = null;	
+									for(int i=0; i<bbsList.size();i++){
+										bbsVo = bbsList.get(i);
 					%>
 						<tr>
 							<td><%=bbsVo.getBbs_seq() %></td>

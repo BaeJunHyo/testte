@@ -11,7 +11,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import cd.com.a.model.LoginLogVo;
 import cd.com.a.model.MemberVo;
+import cd.com.a.service.LoginLogService;
 import cd.com.a.service.MemberService;
 
 @Controller
@@ -19,6 +21,8 @@ public class MemberController {
 
 	@Autowired
 	protected MemberService service;
+	@Autowired
+	protected LoginLogService loginLogService;
 	/* 로그인 
 		@param memberVo - 회원정보  VO
 		@param httpServletRequest - 세션 적용 하기 위함
@@ -32,6 +36,12 @@ public class MemberController {
 		if(userSession != null) {
 			req.getSession().setAttribute("userSession", userSession);
 			req.getSession().setMaxInactiveInterval(30*60);// 30min
+			LoginLogVo logvo  = new LoginLogVo();
+			logvo.setMem_id(userSession.getMem_id());
+			logvo.setMem_usrid(userSession.getMem_usrid());
+			logvo.setMem_nm(userSession.getMem_nm());
+			logvo.setMem_auth(userSession.getMem_auth());
+			loginLogService.loginLog(logvo);
 			return "true";
 		}else {
 			return "false";
@@ -96,8 +106,10 @@ public class MemberController {
 	 */
 	@RequestMapping(value="/memberInsert.do", method= RequestMethod.POST)
 	 public String memberInsert(MemberVo member,Model model)throws Exception {
+		System.out.println("dto:"+member.toString());
 		if(member != null) {
 			boolean result = service.newRegi(member);
+			System.out.println("result="+result);
 			if(result) {
 				model.addAttribute("type","regi");
 				model.addAttribute("result","true");

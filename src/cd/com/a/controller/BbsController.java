@@ -24,7 +24,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import cd.com.a.model.BbsAnswerVo;
-import cd.com.a.model.BbsVo;
+import cd.com.a.model.BbsVo2;
 import cd.com.a.model.MemberVo;
 import cd.com.a.model.PageMaker;
 import cd.com.a.model.PagingCriteria;
@@ -54,7 +54,7 @@ public class BbsController {
 			return "alertPage";
 		}else {
 			System.out.println("cri : " +cri.toString());
-			List<BbsVo> bbsList = bbsService.getBbsList(cri);
+			List<BbsVo2> bbsList = bbsService.getBbsList(cri);
 			PageMaker pageMaker = new PageMaker();
 			int total = bbsService.totalCnt(cri); 
 			System.out.println("total:"+total);
@@ -79,7 +79,7 @@ public class BbsController {
 	
 	@ResponseBody
 	@RequestMapping(value = "bbsWriteAf.do",method=RequestMethod.POST)
-	   public String bbsWriteAf(@ModelAttribute BbsVo bbs, HttpServletRequest req,
+	   public String bbsWriteAf(@ModelAttribute BbsVo2 bbs, HttpServletRequest req,
 	@RequestParam(value="fileload1")MultipartFile fileload1,
 	@RequestParam(value="fileload2")MultipartFile fileload2)throws Exception{
 		String str = "";
@@ -139,7 +139,7 @@ public class BbsController {
 	@RequestMapping(value="/fileDownload.do")
 	public void fileDownload(@RequestParam("bbs_seq")int bbs_seq,HttpServletResponse resp,HttpServletRequest req)throws Exception{
 		System.out.println("ghk:"+bbs_seq);
-		BbsVo bbs = bbsService.bbsDetail(bbs_seq);
+		BbsVo2 bbs = bbsService.bbsDetail(bbs_seq);
 		
 		String fileName = bbs.getFile_name2();
 		String oriName = bbs.getFile_origin2();
@@ -163,6 +163,7 @@ public class BbsController {
 	@RequestMapping(value = "/bbsDetail.do", method=RequestMethod.GET)
 	public String bbsDetail(@RequestParam("bbs_seq")int bbs_seq, Model model,PagingCriteria cri,HttpServletRequest req)throws Exception {
 		System.out.println("seq="+bbs_seq);
+		BbsVo2 bbsVo = bbsService.bbsDetail(bbs_seq);
 		
 		MemberVo user = (MemberVo)req.getSession().getAttribute("userSession");
 		if(user == null) {
@@ -194,7 +195,7 @@ public class BbsController {
 	
 	@RequestMapping(value = "/bbsUpdateMove.do", method= {RequestMethod.GET,RequestMethod.POST})
 	public String bbsUpdateMove(@RequestParam("bbs_seq")int bbs_seq,Model model)throws Exception {
-		BbsVo bbsVo = bbsService.bbsDetail(bbs_seq);
+		BbsVo2 bbsVo = bbsService.bbsDetail(bbs_seq);
 		model.addAttribute("bbsVo",bbsVo);
 		
 		
@@ -203,7 +204,7 @@ public class BbsController {
 	
 	@ResponseBody
 	@RequestMapping(value = "bbsUpdate.do",method=RequestMethod.POST)
-	   public String bbsUpdate(@ModelAttribute BbsVo bbs, HttpServletRequest req,
+	   public String bbsUpdate(@ModelAttribute BbsVo2 bbs, HttpServletRequest req,
 	@RequestParam(value="fileload1")MultipartFile fileload1,
 	@RequestParam(value="fileload2")MultipartFile fileload2)throws Exception{
 		

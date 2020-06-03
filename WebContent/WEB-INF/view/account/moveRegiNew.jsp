@@ -73,7 +73,7 @@ table th{
 		             <tr class="cont idComentColor">
 		               <th>아이디</th>
 		               <td class="tl">
-		                  <input type="text" class="ttext memberId" name="mem_id" id="id" value="" placeholder="6~20자 영소문자 또는 숫자">
+		                  <input type="text" class="ttext memberId" name="mem_usrid" id="id" value="" placeholder="6~20자 영소문자 또는 숫자">
 		                  <button type="button" onclick="idCheck()" class="frm_adr_btn">중복체크</button>
 		                  <!-- <a href="#n" class="btn_dark_s" style="height: 33px; line-height: 33px;">중복확인</a> -->
 		                  <span class="idCheck"></span>
@@ -85,7 +85,7 @@ table th{
 		                  <ul class="dot_list c_gray pt10">
 		                      <li>※ 숫자,영문,특수문자 포함하여 8자리 이상 입력해주세요 </li>
 		                  </ul>
-		                  <input class="memberPwd" type="password" maxlength="20" id="pwd" name="memberPassword" value="" placeholder="">
+		                  <input class="memberPwd" type="password" maxlength="20" id="mem_pw" name="mem_pw" value="" placeholder="">
 				          <span class="pwdCheck"></span>
 		               </td>
 		            </tr>
@@ -98,52 +98,52 @@ table th{
       		        <tr>
 		            	<th>비밀번호 분실시 질문 </th>
 		            	<td>
-		            		<select class="select-hint" name="pass_question" id="pass_question" >
-				                  <option value="1" selected>기억에 남는 추억의 장소는?</option>
-				                  <option value="2">나의 좌우명은?</option>
-				                  <option value="3">나의 출신 초등학교는?</option>
-				                  <option value="4">가장 좋아하는 색깔은?</option>
-				                  <option value="5">아버지 성함은?</option>
-				                  <option value="6">어머니 성함은?</option>
-				                  <option value="7">가장 감명 깊게 본 영화는?</option>
-				                  <option value="8">자신의 보물 제 1호는?</option>
-				                  <option value="9">가장 기억에 남는 선생님 성함은?</option>
-				                  <option value="10">유년시절 가장 생각나는 친구이름은?</option>
+		            		<select class="select-hint" name="pw_quest" id="pass_question" >
+				                  <option value="기억에 남는 추억의 장소는?" selected>기억에 남는 추억의 장소는?</option>
+				                  <option value="나의 좌우명은?">나의 좌우명은?</option>
+				                  <option value="나의 출신 초등학교는?">나의 출신 초등학교는?</option>
+				                  <option value="가장 좋아하는 색깔은?">가장 좋아하는 색깔은?</option>
+				                  <option value="아버지 성함은?">아버지 성함은?</option>
+				                  <option value="어머니 성함은?">어머니 성함은?</option>
+				                  <option value="가장 감명 깊게 본 영화는?">가장 감명 깊게 본 영화는?</option>
+				                  <option value="자신의 보물 제 1호는?">자신의 보물 제 1호는?</option>
+				                  <option value="가장 기억에 남는 선생님 성함은?">가장 기억에 남는 선생님 성함은?</option>
+				                  <option value="유년시절 가장 생각나는 친구이름은?">유년시절 가장 생각나는 친구이름은?</option>
 				               </select>
 		            	</td>
 		            </tr>
 		            <tr>
 		            	<th>비밀번호 분실시 답변</th>
 		            	<td>
-				            <input class="hint-answer" type="text" name="pass_answer" id="pass_hint" placeholder="답을 입력해주세요">
+				            <input class="hint-answer" type="text" name="pw_answer" id="pass_hint" placeholder="답을 입력해주세요">
 		            	</td>
 		            </tr>
 		            
 		            <tr  class="cont companyNameComentColor">
 		            	<th>업체명</th>
 		            	<td>
-		            		<input class="company_name" type="text" name="company_name" id="company_name" placeholder="특수문자 제외 ">
+		            		<input class="company_name" type="text" name="comp_nm" id="company_name" placeholder="특수문자 제외 ">
 		            	<span class="company_nameCheck"></span>
 		            	</td>
 		            </tr>
 		            <tr class="cont companyNumComentColor">
 		            	<th>업체등록 번호</th>
 		            	<td>
-		            		<input class="company_num" type="text" name="company_num" id="company_num" placeholder="(-)하이픈 제외하고 입력" maxlength="20">
+		            		<input class="company_num" type="text" name="comp_num" id="company_num" placeholder="(-)하이픈 제외하고 입력" maxlength="20">
 		            	<span class="company_numCheck"></span>
 		            	</td>
 		            </tr>
 		            <tr class="cont companyOwnerComentColor">
 		            	<th>대표자</th>
 		            	<td>
-		            		<input class="company_owner" type="text" name="company_owner" id="company_owner" placeholder="(공백없이 한글만 입력)" >
+		            		<input class="company_owner" type="text" name="comp_own" id="company_owner" placeholder="(공백없이 한글만 입력)" >
 		            	<span class="company_ownerCheck"></span>
 		            	</td>
 		            </tr>
 		            
 		            <tr class="cont nameComentColor">
 		               <th>가입자명</th>
-		               <td class="tl"><input type="text" class="memberName" name="mem_name" id="name" value="" placeholder="(공백없이 한글만 입력)">
+		               <td class="tl"><input type="text" class="memberName" name="mem_nm" id="name" value="" placeholder="(공백없이 한글만 입력)">
 		               <span class="nameCheck"></span>
 		               </td>
 		            </tr>
@@ -169,7 +169,7 @@ table th{
 		           <tr>
 		            	<th>시,도 회명 </th>
 		            	<td>
-		            		<select  name="company_auth"  >
+		            		<select  name="comp_auth"  >
 				                  <option value="직할회" selected>직할회</option>
 				                  <option value="서울시회">서울시회</option>
 				                  <option value="인천시회">인천시회</option>
@@ -199,7 +199,7 @@ table th{
 		               <th>회사전화번호</th>
 		               <td class="tl">
 		                  
-		                  <input type="text" class="mr0 companyNumber"  type="text" maxlength="11" name="company_phone" placeholder="(-)하이픈 제외하고 입력">
+		                  <input type="text" class="mr0 companyNumber"  type="text" maxlength="11" name="comp_tel" placeholder="(-)하이픈 제외하고 입력">
 		                  <span class="companyNumberCheck"></span>
 		               </td>
 		            </tr>
@@ -208,7 +208,7 @@ table th{
 		               <th>회사팩스번호</th>
 		               <td class="tl">
 		                  
-		                  <input type="text" class="mr0 companyFax"  type="text" maxlength="11" name="company_fax" placeholder="(-)하이픈 제외하고 입력">
+		                  <input type="text" class="mr0 companyFax"  type="text" maxlength="11" name="comp_fax" placeholder="(-)하이픈 제외하고 입력">
 		                  <span class="companyFaxCheck"></span>
 		               </td>
 		            </tr>
@@ -223,7 +223,7 @@ table th{
 			                <span id="guide" style="color:#999;display:none"></span>
 			                <input type="text"  class="mt08" id="kakao_detailAddress" name="companyDetailStreetName" placeholder="상세주소">
 			                <input type="text" style="display:none;" id="kakao_extraAddress" placeholder="참고항목">
-			            	<input type="hidden" name="company_addr" id="address" value="">
+			            	<input type="hidden" name="comp_addr" id="address" value="">
 		            	</td>
 		            </tr>
 		            

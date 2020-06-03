@@ -1,5 +1,5 @@
 <%@page import="java.util.List"%>
-<%@page import="cd.com.a.model.BbsVo"%>
+<%@page import="cd.com.a.model.BbsVo2"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <style>
@@ -7,9 +7,9 @@ p {margin:0;}
 </style>
 
 <%@ include file="../../../include/header.jsp"%>
-<script src = "<%=request.getContextPath() %>/js/ckeditor/ckeditor.js"></script>
+<script src = "<%=request.getContextPath()%>/js/ckeditor/ckeditor.js"></script>
 <%
-List<BbsVo> bbsList = (List<BbsVo>)request.getAttribute("bbsList");
+	List<BbsVo2> bbsList = (List<BbsVo2>)request.getAttribute("bbsList");
 %>
 <div id="sub_contents">
 	<div class="sub_cont">

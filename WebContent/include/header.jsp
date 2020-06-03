@@ -40,33 +40,25 @@ if(userSession != null){
 	<div id="header" class="sub">		
 		<div class="header_top">
 			<div class="inner">
-					<% if(userSession == null){%>
+					<% if(userSession == null){	%>
 					<!--로그인세션이 없을때 -->
 					<span><a href="<%=request.getContextPath() %>/loginViewMove.do">로그인</a></span>
 					<span><img src="<%=request.getContextPath() %>/images/main/header_dot.jpg" alt="·"></span>
 					<span><a href="<%=request.getContextPath() %>/newRegi.do">회원가입</a></span>
 					<span><img src="<%=request.getContextPath() %>/images/main/header_dot.jpg" alt="·"></span>
-					<!-- <ul class="top_menu clearfix">
-						<li><a href="main.do">Home</a></li>
-						<li><a href="#">로그인</a></li>
-						<li><a href="#">회원가입</a></li>
-						<li><a href="#">사이트맵</a></li>
-						</ul>			 -->
-					<%}else{%>
+					<% }else{%>
 						<%if(userSession.getMem_auth() == 3){ %>
 						<span><a href="<%=request.getContextPath() %>/admin.do">관리자페이지</a></span>
 						<span><img src="<%=request.getContextPath() %>/images/main/header_dot.jpg" alt="·"></span>
 						<span><a href="#" onclick="logout()">로그아웃</a></span>
 						<span><img src="<%=request.getContextPath() %>/images/main/header_dot.jpg" alt="·"></span>
-						<%}else{ %>
+						<%}else{%>
 						<span><a href="<%=request.getContextPath() %>/#none">마이페이지</a></span>
 						<span><img src="<%=request.getContextPath() %>/images/main/header_dot.jpg" alt="·"></span>
 						<span><a href="#" onclick="logout()">로그아웃</a></span>
 						<span><img src="<%=request.getContextPath() %>/images/main/header_dot.jpg" alt="·"></span>
-						<%} %>
-					<%
-					}
-					%>
+						<%}%>
+					<%}%>
 					<span><a href="<%=request.getContextPath() %>/#none.do">사이트맵</a></span>
 			
 				<h1 class="logo"><a href="<%=request.getContextPath() %>/main.do">

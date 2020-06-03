@@ -28,7 +28,7 @@
 <c:if test="${type eq 'regi'}">
 <script>
 $(document).ready(function(){
-	if(${result}=="true"){
+	if(${result eq 'true'}){
 		location.href="main.do";
 	}else{
 		Swal.fire({

@@ -6,7 +6,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import cd.com.a.model.BbsVo;
+import cd.com.a.model.BbsVo2;
 import cd.com.a.model.PagingCriteria;
 
 
@@ -19,21 +19,21 @@ public class BbsDaoImpl implements BbsDao {
 	String nameSpace = "Bbs.";
 	
 	@Override
-	public List<BbsVo> getBbsList(PagingCriteria paging) {
-		List<BbsVo> list = sqlSession.selectList(nameSpace+"getBbsList",paging);
+	public List<BbsVo2> getBbsList(PagingCriteria paging) {
+		List<BbsVo2> list = sqlSession.selectList(nameSpace+"getBbsList",paging);
 		System.out.println("list_size:"+list.size());
 		return list;
 	}
 
 	
 	@Override
-	public boolean bbsWrite(BbsVo bbs) {
+	public boolean bbsWrite(BbsVo2 bbs) {
 		int result = sqlSession.insert(nameSpace+"BbsWrite",bbs);
 		return result>0?true:false;
 	}
 	
 	@Override
-	public boolean bbsUpdate(BbsVo bbs) {
+	public boolean bbsUpdate(BbsVo2 bbs) {
 		int result = sqlSession.update(nameSpace+"BbsUpdate",bbs);
 		return result>0?true:false;
 	}
@@ -44,7 +44,7 @@ public class BbsDaoImpl implements BbsDao {
 	}
 	
 	@Override
-	public BbsVo bbsDetail(int bbs_seq) {
+	public BbsVo2 bbsDetail(int bbs_seq) {
 		return sqlSession.selectOne(nameSpace+"BbsDetail",bbs_seq);
 	}
 	
@@ -60,7 +60,7 @@ public class BbsDaoImpl implements BbsDao {
 	}
 
 	@Override
-	public List<BbsVo> getMainBbsList() {
+	public List<BbsVo2> getMainBbsList() {
 		return sqlSession.selectList(nameSpace+"getMainBbsList");
 	}
 	

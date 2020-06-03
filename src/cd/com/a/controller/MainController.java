@@ -12,8 +12,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import cd.com.a.model.BbsVo;
+import cd.com.a.model.BbsVo2;
 import cd.com.a.service.BbsService;
+import cd.com.a.service.LoginLogService;
 import cd.com.a.util.CaptChaUtil;
 
 @Controller
@@ -22,11 +23,16 @@ public class MainController {
 	@Autowired
 	BbsService service;
 	
+	@Autowired
+	LoginLogService loginLogService;
+	
 	//메인페이지이동
 	@RequestMapping(value="main.do", method= RequestMethod.GET)
 	public String main(Model model)throws Exception {
-		List<BbsVo> list = service.getMainBbsList();
-		model.addAttribute("notice_list",list);
+		/*
+		 * List<BbsVo> list = service.getMainBbsList();
+		 * model.addAttribute("notice_list",list);
+		 */
 		return "main";
 	}
 	//회원가입시 자동가입 방지 captchaImg 생성

@@ -46,12 +46,12 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/x
        <version>1.7.25</version>       
    </dependency>
    
-   <dependency>
+ <!--   <dependency>
       <groupId>javax.servlet</groupId>
       <artifactId>servlet-api</artifactId>
       <version>2.5</version>
       <scope>provided</scope>
-   </dependency>
+   </dependency>-->
    
 
    <dependency>
@@ -59,7 +59,22 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/x
       <artifactId>jsp-api</artifactId>
       <version>2.1</version>
       <scope>provided</scope>
+   </dependency> 
+     <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>javax.servlet-api</artifactId>
+      <version>3.0.1</version>
+      <scope>provided</scope>
    </dependency>
+   
+
+<!--    <dependency>
+      <groupId>javax.servlet.jsp</groupId>
+      <artifactId>javax.jsp-api</artifactId>
+      <version>2.2</version>
+      <scope>provided</scope>
+   </dependency> -->
+   
    <dependency>
       <groupId>javax.servlet</groupId>
       <artifactId>jstl</artifactId>
@@ -261,6 +276,12 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/x
        <!-- <version>2.3.0</version> -->
        <version>2.5.1</version>
    </dependency>
+   <!-- mysqlDB -->
+   <dependency>
+       <groupId>mysql</groupId>
+       <artifactId>mysql-connector-java</artifactId>
+       <version>5.1.47</version>
+   </dependency> 
    
    <dependency>
        <groupId>commons-dbcp</groupId>
@@ -283,33 +304,7 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/x
         <type>nbm</type>
      </dependency>
       
-     <!--  표준프레임워크 실행환경 -->
-     <dependency>
-		    <groupId>egovframework.rte</groupId>
-		    <artifactId>egovframework.rte.ptl.mvc</artifactId>
-		    <version>3.9.0</version>
-		    <exclusions>
-		    	<exclusion>
-		    		<artifactId>commons-logging</artifactId>
-		    		<groupId>commons-logging</groupId>
-		    	</exclusion>
-		    </exclusions>
-        </dependency>
-        <dependency>
-		    <groupId>egovframework.rte</groupId>
-		    <artifactId>egovframework.rte.psl.dataaccess</artifactId>
-		    <version>3.9.0</version>
-        </dependency>
-        <dependency>
-			<groupId>egovframework.rte</groupId>
-			<artifactId>egovframework.rte.fdl.idgnr</artifactId>
-			<version>3.9.0</version>
-		</dependency>
-       	<dependency>
-			<groupId>egovframework.rte</groupId>
-			<artifactId>egovframework.rte.fdl.property</artifactId>
-			<version>3.9.0</version>
-		</dependency>
+    
       
   </dependencies>
   
